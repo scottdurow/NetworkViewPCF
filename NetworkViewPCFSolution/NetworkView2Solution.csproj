@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58612E7B-1082-4661-A7F7-DCFC85E0DB04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NetworkView2Solution</RootNamespace>
+    <AssemblyName>NetworkView2Solution</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build-solution.bat" />
+    <None Include="packages.config" />
+    <None Include="spkl.json" />
+    <None Include="spkl\unpack.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Other\Customizations.xml" />
+    <Content Include="Other\Relationships.xml" />
+    <Content Include="Other\Solution.xml" />
+    <Content Include="solution_package\Controls\dev1_dev1.NetworkView\bundle.js" />
+    <Content Include="solution_package\Controls\dev1_dev1.NetworkView\ControlManifest.xml" />
+    <Content Include="solution_package\Controls\dev1_dev1.NetworkView\ControlManifest.xml.data.xml" />
+    <Content Include="solution_package\Entities\Account\Entity.xml" />
+    <Content Include="solution_package\Entities\Account\FormXml\main\{1dd030fb-907a-ea11-a811-000d3ad97943}.xml" />
+    <Content Include="solution_package\Entities\Account\FormXml\main\{1dd030fb-907a-ea11-a811-000d3ad97943}_managed.xml" />
+    <Content Include="solution_package\Entities\Account\RibbonDiff.xml" />
+    <Content Include="solution_package\Entities\Contact\Entity.xml" />
+    <Content Include="solution_package\Entities\Contact\FormXml\main\{ef42a659-917a-ea11-a811-000d3ab393dc}.xml" />
+    <Content Include="solution_package\Entities\Contact\FormXml\main\{ef42a659-917a-ea11-a811-000d3ab393dc}_managed.xml" />
+    <Content Include="solution_package\Entities\Contact\RibbonDiff.xml" />
+    <Content Include="solution_package\Other\Customizations.xml" />
+    <Content Include="solution_package\Other\Solution.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

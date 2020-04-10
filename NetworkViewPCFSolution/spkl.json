@@ -1,0 +1,38 @@
+{
+    /*
+    The solutions section defines a solution that can be extracted to individual xml files to make
+    versioning of Dynamics metadata (entities, attributes etc) easier
+    */
+    "solutions": [
+        {
+            "profile": "default,debug",
+            /*
+            The unique name of the solution to extract, unpack, pack and import
+            */
+            "solution_uniquename": "networkviewpcf",
+            /*
+            The relative folder path to store the extracted solution metadata xml files
+            */
+            "packagepath": "solution_package",
+            /*
+            The relative path name of the solution to pack into
+            */
+            "solutionpath": "NetworkViewPCF_{0}_{1}_{2}_{3}.zip",
+            /*
+            Set to 'unmanaged', 'managed', 'both_unmanaged_import' or 'both_managed_import' - default to 'unmanaged' if omitted
+            */
+            "packagetype": "both_unmanaged_import",
+            /*
+            Set to 'true' to increment the minor version number before importing from the xml files
+            */
+            "increment_on_import": false,
+
+            /*
+            Map code artefacts to the solution package folder
+            */
+            "map": [
+
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+/bin
+/obj
+
+NetworkViewPCF_*.zip
+Log*.txt
+
+# Ignore these solution files because they are copied from the build output
+/solution_package/Controls/dev1_dev1.NetworkView/bundle.js
+/solution_package/Controls/dev1_dev1.NetworkView/ControlManifest.xml

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkView2Solution", "NetworkView2Solution.csproj", "{58612E7B-1082-4661-A7F7-DCFC85E0DB04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58612E7B-1082-4661-A7F7-DCFC85E0DB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58612E7B-1082-4661-A7F7-DCFC85E0DB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58612E7B-1082-4661-A7F7-DCFC85E0DB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58612E7B-1082-4661-A7F7-DCFC85E0DB04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41D99208-4DFF-4D56-8EA6-6473E71126DE}
+	EndGlobalSection
+EndGlobal
