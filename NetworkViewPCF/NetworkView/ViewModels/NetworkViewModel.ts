@@ -309,6 +309,7 @@ decorate(NetworkViewModel, {
   progressText: observable,
   isLoading: observable,
   isPaused: observable,
+  fullScreen: observable,
   toggleFullScreen: action,
   users: observable,
   connectionRoles: observable,

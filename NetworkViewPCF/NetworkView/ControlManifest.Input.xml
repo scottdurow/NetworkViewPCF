@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="dev1" constructor="NetworkView" version="0.1.4" display-name-key="NetworkView" description-key="NetworkView" control-type="standard">
+  <control namespace="dev1" constructor="NetworkView" version="0.1.7" display-name-key="NetworkView" description-key="NetworkView" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="configName" display-name-key="Config Name" description-key="Name of the configuration set" of-type="SingleLine.Text" usage="bound" required="true" />
     <property name="height" display-name-key="Height" description-key="" of-type="Whole.None" usage="input" required="true" />

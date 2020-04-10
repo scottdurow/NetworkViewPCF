@@ -6,7 +6,7 @@
       <LocalizedName description="NetworkView PCF" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.5</Version>
+    <Version>1.0.0.7</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>networkviewpcf</UniqueName>

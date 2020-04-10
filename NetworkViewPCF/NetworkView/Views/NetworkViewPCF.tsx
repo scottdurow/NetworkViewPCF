@@ -346,6 +346,9 @@ export class NetworkViewPCF extends React.Component<NetworkViewProps> {
   };
   render() {
     const { vm, width, height } = this.props;
+    const { fullScreen } = vm;
+    let correctedWidth = width;
+    if (!fullScreen) correctedWidth = width - 22;
     const { currentLink, currentNode, calloutTarget, serviceProvider } = this.props.vm;
     console.debug("NetworkView:render");
     // https://github.com/vasturiano/react-force-graph
@@ -355,6 +358,7 @@ export class NetworkViewPCF extends React.Component<NetworkViewProps> {
           style={{
             boxShadow: "inset 0 0 10px #000000",
             background: "radial-gradient(circle, rgba(255,255,255,1) 0%,  rgba(220,228,236,1) 100%)",
+            width: correctedWidth,
           }}
         >
           <Stack verticalFill={false} style={{ position: "absolute", zIndex: 99999 }}>
