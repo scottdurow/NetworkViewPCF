@@ -13,7 +13,7 @@ There are a few more items TODO to bring parity with the old version:
 - Loading Activities
 - Showing the users/connection roles for the network
 
-# Bulding the solution
+# Building the solution
 The solution can be built using:
 ```
 NetworkViewPCF\NetworkViewPCFSolution\build-solution.bat
@@ -25,7 +25,7 @@ This will output both a managed and unmanaged solution that contains:
 # Configuration
 The default config loads, Accounts, Contacts, Opportunities, Cases & Connections.
 
-If you are installing on a plain CDS envrionment (not a Dynamics one) you won't have opportunities or cases and will need to change the configuration. This can be done by adding a JavaScript webresource and then referencing it in the Control properties:
+If you are installing on a plain CDS environment (not a Dynamics one) you won't have opportunities or cases and will need to change the configuration. This can be done by adding a JavaScript webresource and then referencing it in the Control properties:
 
 <img src="https://github.com/scottdurow/NetworkViewPCF/blob/master/ControlConfig.png?raw=true" width="200" alt="Mobile App Demo"/>
 
