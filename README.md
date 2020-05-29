@@ -14,7 +14,15 @@ There are a few more items TODO to bring parity with the old version:
 - Showing the users/connection roles for the network
 
 # Building the solution
+Please ensure that you have the latest version of MSBuild set in your PATH user variable. You can use the one that comes with Visual Studio, mine was located here `C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin`
+Build the typescript project
+From project Root
+```
+cd NetworkViewPCF
+```
 The solution can be built using:
+```
+yarn build or npm run build
 ```
 NetworkViewPCF\NetworkViewPCFSolution\build-solution.bat
 ```
