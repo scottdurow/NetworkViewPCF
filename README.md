@@ -32,3 +32,6 @@ If you are installing on a plain CDS environment (not a Dynamics one) you won't 
 The contents of this file should look something like: [defaultConfig.js](https://github.com/scottdurow/NetworkViewPCF/blob/master/NetworkViewPCF/defaultConfig.js)
 
 This file is similar to the old version, but not identical! TODO: Add information on the configuration schema
+
+# Troubleshooting
+1. Each user will need at least basic read access to all the entities that are loaded into the Network View.
