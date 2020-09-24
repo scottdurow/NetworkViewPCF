@@ -5,12 +5,9 @@ module.exports = ({majorVersion, minorVersion, buildVersion}) => {
     const path = require("path");
     
     const workspaceDir = process.env.GITHUB_WORKSPACE || path.resolve(__dirname,"../");
- 
-    console.log(JSON.stringify(context.github));
     // Copy the PCF control outputs to the solution folders for packing
     console.log(`Workspace Directory: ${workspaceDir}`);
-
-    const minorVersion = context.github.run_number;
+    console.log(`Version:${majorVersion}.${minorVersion}.${buildVersion}`);
     fs.copyFileSync(
         `${workspaceDir}/NetworkViewPCF/out/controls/NetworkView/bundle.js`,
         `${workspaceDir}/NetworkViewPCFSolution/solution_package/Controls/dev1_dev1.NetworkView/bundle.js`);
@@ -23,14 +20,14 @@ module.exports = ({majorVersion, minorVersion, buildVersion}) => {
     const replace = require("replace-in-file");
     const resultsPCF = replace.sync({
         files: `${workspaceDir}/NetworkViewPCFSolution/solution_package/Controls/dev1_dev1.NetworkView/ControlManifest.xml`,
-        from: /constructor="NetworkView" version="0.*.*"/g,
+        from: /constructor="NetworkView" version="[0-9]+.[0-9]+.[0-9]+"/g,
         to: `constructor="NetworkView" version="${majorVersion}.${minorVersion}.${buildVersion}"`,
         countMatches: true,
       });
     console.log(resultsPCF);
     const resultsSolution = replace.sync({
         files: `${workspaceDir}/NetworkViewPCFSolution/solution_package/Other/Solution.xml`,
-        from: /\<Version\>*.*.*.*\<\/Version>/g,
+        from: /\<Version\>[0-9]+.[0-9]+.[0-9]+.[0-9]+\<\/Version>/g,
         to: `<Version>${majorVersion}.${minorVersion}.0.${buildVersion}</Version>`,
         countMatches: true,
       });
@@ -40,5 +37,5 @@ module.exports = ({majorVersion, minorVersion, buildVersion}) => {
 
 if (!process.env.GITHUB_WORKSPACE)
 {
-    module.exports({github:{},context:{run_number:"1"}});
+    module.exports({majorVersion:"1",minorVersion:"0",buildVersion:"1"});
 }
