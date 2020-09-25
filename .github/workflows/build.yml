@@ -1,0 +1,96 @@
+# This workflow will build the PCF control, pack the solution and create a release
+# Note: The folder solution_package contains the full solution including the forms and PCF control
+
+name: Build
+
+on:
+  push:
+    branches: [ dev, master ]
+  pull_request:
+    branches: [ dev, master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    env:
+      MajorVersion: 1
+      MinorVersion: 1
+      BuildVersion: ${{ github.run_number }}
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install Dependencies
+      run: npm ci
+      working-directory: "./NetworkViewPCF"
+
+    - name: Build
+      run: dotnet msbuild "NetworkView2Solution.cdsproj" /t:build /restore /p:configuration=Release
+      working-directory: "./NetworkViewPCFSolution"
+
+    - name: Install PreProcess Script Dependencies
+      run: npm ci
+      working-directory: "./build-scripts"
+
+    - name: PreProcess Solution Package
+      uses: actions/github-script@v2
+      with:
+        script: |
+          const script = require(`${process.env.GITHUB_WORKSPACE}/build-scripts/preprocess-solution.js`)
+          script({
+            majorVersion: ${{ env.MajorVersion }},
+            minorVersion: ${{ env.MinorVersion }},
+            buildVersion: ${{ env.BuildVersion }},
+            github,
+            context})  
+ 
+    - name: Pack solution
+      uses: microsoft/powerplatform-actions/pack-solution@latest
+      with:
+        solution-folder: 'NetworkViewPCFSolution/solution_package'
+        solution-file: out/NetworkView_managed.zip
+        solution-type: Managed
+
+    - name: Solution Artifact
+      if: endsWith(github.ref, '/dev')
+      uses: actions/upload-artifact@v2
+      with:
+        path: out/NetworkView_managed.zip
+
+    - name: Create Release
+      if: endsWith(github.ref, '/master')
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ env.MajorVersion }}.${{ env.MinorVersion }}.${{ env.BuildVersion }}
+        release_name: Release v${{ env.MajorVersion }}.${{ env.MinorVersion }}.${{ env.BuildVersion }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      if: endsWith(github.ref, '/master')
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: out/NetworkView_managed.zip
+        asset_name: NetworkView_managed.zip
+        asset_content_type: application/zip
+
+
+
